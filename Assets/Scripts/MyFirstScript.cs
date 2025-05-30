@@ -15,6 +15,10 @@ public class MyFirstScript : MonoBehaviour
     [SerializeField] private float _waveOffset = 0f;
     [SerializeField] private Texture2D[] _desserts;
     [SerializeField] private RawImage _image;
+
+    // For pop-up numbers after clicking muffin
+    [SerializeField] private float _xMin, _xMax, _yMin, _yMax;
+
     private int _counter = 0;
     private int _spinLightsLength = 0;
 
@@ -83,7 +87,7 @@ public class MyFirstScript : MonoBehaviour
 
         // Reward pop-up text
         GameObject textRewardClone = Instantiate(_textRewardPrefab, transform);
-        textRewardClone.transform.localPosition = MyToolbox.GetRandomVector2();
+        textRewardClone.transform.localPosition = MyToolbox.GetRandomVector2(_xMin, _xMax, _yMin, _yMax);
     }
 
     private void UpdateTotalMuffins()
