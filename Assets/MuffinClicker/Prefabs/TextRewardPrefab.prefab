@@ -150,3 +150,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 200
+  _text: {fileID: 4987497916098237668}
+  _fadeSpeed: 0.5

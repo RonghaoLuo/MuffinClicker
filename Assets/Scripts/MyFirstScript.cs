@@ -17,13 +17,13 @@ public class MyFirstScript : MonoBehaviour
     [SerializeField] private RawImage _image;
 
     // For pop-up numbers after clicking muffin
-    [SerializeField] private float _xMin, _xMax, _yMin, _yMax;
+    [SerializeField] private float _textMinXPos, _textMaxXPos, _textMinYPos, _textMaxYPos;
 
     private int _counter = 0;
     private int _spinLightsLength = 0;
 
     // Prefabs
-    [SerializeField] private GameObject _textRewardPrefab;
+    [SerializeField] private TextMeshProUGUI _textRewardPrefab;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -65,19 +65,23 @@ public class MyFirstScript : MonoBehaviour
 
     public void OnMuffinClicked()
     {
-        float _random = Random.value;       // between 0.0 and 1.0
-        if (_random <= _critChance)                // slightly over 1%, like 1.00001%
+        int addedMuffins = 0;
+        float _random = Random.value;               // between 0.0 and 1.0
+        if (_random <= _critChance)                 // slightly over 1%, like 1.00001%
         {
-            _counter += _muffinsPerClick * 10;
+            //_counter += _muffinsPerClick * 10;
+            addedMuffins = _muffinsPerClick * 10;
             Debug.Log("Critical Hit!");
         }
         else
         {
-            _counter += _muffinsPerClick;
+            //_counter += _muffinsPerClick;
+            addedMuffins = _muffinsPerClick;
         }
+        _counter += addedMuffins;
             
         UpdateTotalMuffins();
-        Debug.Log("Muffin = " + _counter + ", Random # = " + _random);
+        //Debug.Log("Muffin = " + _counter + ", Random # = " + _random);
 
         // Random Dessert
         int _dessertsLength = _desserts.Length;
@@ -86,8 +90,17 @@ public class MyFirstScript : MonoBehaviour
         _image.texture = _randomTexture;
 
         // Reward pop-up text
-        GameObject textRewardClone = Instantiate(_textRewardPrefab, transform);
-        textRewardClone.transform.localPosition = MyToolbox.GetRandomVector2(_xMin, _xMax, _yMin, _yMax);
+            // Clone
+        TextMeshProUGUI textRewardClone = Instantiate(_textRewardPrefab, transform);
+            // Random Position
+        textRewardClone.transform.localPosition = MyToolbox.GetRandomVector2(_textMinXPos, _textMaxXPos, _textMinYPos, _textMaxYPos);
+            // Get the TMP Component
+        //TextMeshProUGUI textRewardText = textRewardClone.GetComponent<TextMeshProUGUI>();
+            // Set the text
+        textRewardClone.text = "+" + addedMuffins;
+
+        // Testing Color.Lerp
+        //Debug.Log(Color.Lerp(Color.white, Color.clear, 2.5f));
     }
 
     private void UpdateTotalMuffins()

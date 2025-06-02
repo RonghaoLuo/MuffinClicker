@@ -476,11 +476,11 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 1075e5859079545b8a62c3b2f5209a71, type: 3}
   - {fileID: 2800000, guid: 7c13c870a874549fd9e46a3506c8e5f2, type: 3}
   _image: {fileID: 829400015}
-  _xMin: -200
-  _xMax: 200
-  _yMin: -200
-  _yMax: 200
-  _textRewardPrefab: {fileID: 315004794687787601, guid: 53c304d9e1a448b4fbaa381e86c8fe08, type: 3}
+  _textMinXPos: -200
+  _textMaxXPos: 200
+  _textMinYPos: -200
+  _textMaxYPos: 200
+  _textRewardPrefab: {fileID: 4987497916098237668, guid: 53c304d9e1a448b4fbaa381e86c8fe08, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
