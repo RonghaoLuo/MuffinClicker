@@ -4,9 +4,7 @@ using UnityEngine.UI;
 
 public class MyFirstScript : MonoBehaviour
 {
-    [SerializeField] private int _muffinsPerClick = 1;
-    [SerializeField] private TextMeshProUGUI _totalMuffinsText;
-    [Range(0f, 1f)] [SerializeField] private float _critChance = 0.01f;
+    [SerializeField] private GameManager _gameManager;
     [SerializeField] private Transform[] _spinLights;
     [SerializeField] private float[] _spinSpeeds; // degrees per second
     [SerializeField] private float _minSpinSpeed = 270f, _maxSpinSpeed = 450f;
@@ -18,20 +16,16 @@ public class MyFirstScript : MonoBehaviour
 
     // For pop-up numbers after clicking muffin
     [SerializeField] private float _textMinXPos, _textMaxXPos, _textMinYPos, _textMaxYPos;
-
-    private int _counter = 0;
+    
     private int _spinLightsLength = 0;
 
     // Prefabs
     [SerializeField] private TextMeshProUGUI _textRewardPrefab;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Start()
     {
-        Debug.Log("Hello, World!");
-        UpdateTotalMuffins();
         _spinLightsLength = _spinLights.Length;
-            
+
         // Random Spin Speeds
         for (int i = 0; i < _spinLights.Length; i++)
         {
@@ -65,22 +59,8 @@ public class MyFirstScript : MonoBehaviour
 
     public void OnMuffinClicked()
     {
-        int addedMuffins = 0;
-        float _random = Random.value;               // between 0.0 and 1.0
-        if (_random <= _critChance)                 // slightly over 1%, like 1.00001%
-        {
-            //_counter += _muffinsPerClick * 10;
-            addedMuffins = _muffinsPerClick * 10;
-            Debug.Log("Critical Hit!");
-        }
-        else
-        {
-            //_counter += _muffinsPerClick;
-            addedMuffins = _muffinsPerClick;
-        }
-        _counter += addedMuffins;
+        int addedMuffins = _gameManager.AddMuffins();        
             
-        UpdateTotalMuffins();
         //Debug.Log("Muffin = " + _counter + ", Random # = " + _random);
 
         // Random Dessert
@@ -101,19 +81,5 @@ public class MyFirstScript : MonoBehaviour
 
         // Testing Color.Lerp
         //Debug.Log(Color.Lerp(Color.white, Color.clear, 2.5f));
-    }
-
-    private void UpdateTotalMuffins()
-    {
-        if (_counter == 1)
-        {
-            _totalMuffinsText.text = "1 Muffin";
-
-        }
-        else
-        {
-            _totalMuffinsText.text = _counter.ToString() + " Muffins";
-
-        }
     }
 }
