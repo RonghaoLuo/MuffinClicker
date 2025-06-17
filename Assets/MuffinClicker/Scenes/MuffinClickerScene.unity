@@ -532,11 +532,11 @@ MonoBehaviour:
   - {fileID: 1594047314}
   - {fileID: 28660337}
   _spinSpeeds: []
-  _minSpinSpeed: 270
-  _maxSpinSpeed: 450
-  _waveAmplitude: 1
-  _waveSpeed: 1
-  _waveOffset: 0
+  _minSpinSpeed: 180
+  _maxSpinSpeed: 360
+  _waveAmplitude: 0.16
+  _waveSpeed: 3.7
+  _waveOffset: 0.84
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

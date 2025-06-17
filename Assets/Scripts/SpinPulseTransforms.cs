@@ -4,10 +4,10 @@ public class SpinPulseTransforms : MonoBehaviour
 {
     [SerializeField] private Transform[] _spinLights;
     [SerializeField] private float[] _spinSpeeds; // degrees per second
-    [SerializeField] private float _minSpinSpeed = 270f, _maxSpinSpeed = 450f;
-    [SerializeField] private float _waveAmplitude = 1f;
-    [SerializeField] private float _waveSpeed = 1f;
-    [SerializeField] private float _waveOffset = 0f;
+    [SerializeField] private float _minSpinSpeed = 180f, _maxSpinSpeed = 360f;
+    [SerializeField] private float _waveAmplitude = 0.16f;
+    [SerializeField] private float _waveSpeed = 3.7f;
+    [SerializeField] private float _waveOffset = 0.84f;
 
     private int _spinLightsLength = 0;
 
