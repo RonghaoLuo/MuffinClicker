@@ -441,6 +441,7 @@ GameObject:
   m_Component:
   - component: {fileID: 436119270}
   - component: {fileID: 436119271}
+  - component: {fileID: 436119272}
   m_Layer: 5
   m_Name: MuffinContent
   m_TagString: Untagged
@@ -483,17 +484,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameManager: {fileID: 297597948}
-  _spinLights:
-  - {fileID: 1594047314}
-  - {fileID: 28660337}
-  _spinSpeeds:
-  - 0
-  - 0
-  _minSpinSpeed: 180
-  _maxSpinSpeed: 360
-  _waveAmplitude: 0.16
-  _waveSpeed: 3.7
-  _waveOffset: 0.84
   _desserts:
   - {fileID: 2800000, guid: b35d736231b2e43b093a0ee7d5581ac2, type: 3}
   - {fileID: 2800000, guid: 190566084fa2d4397a67618bafee3137, type: 3}
@@ -526,6 +516,27 @@ MonoBehaviour:
   _textMinYPos: -200
   _textMaxYPos: 200
   _textRewardPrefab: {fileID: 4987497916098237668, guid: 53c304d9e1a448b4fbaa381e86c8fe08, type: 3}
+--- !u!114 &436119272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436119269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5174d378768f45f4d997207252867e3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spinLights:
+  - {fileID: 1594047314}
+  - {fileID: 28660337}
+  _spinSpeeds: []
+  _minSpinSpeed: 270
+  _maxSpinSpeed: 450
+  _waveAmplitude: 1
+  _waveSpeed: 1
+  _waveOffset: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
