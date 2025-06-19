@@ -13,6 +13,5 @@ public class VolumeController : MonoBehaviour
     public void OnVolumeChanged()
     {
         AudioListener.volume = _volumeSlider.value;
-        Debug.Log("Volume Changed");
     }
 }

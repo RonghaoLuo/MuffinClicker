@@ -14,24 +14,11 @@ public class MyFirstScript : MonoBehaviour
     // Prefabs
     [SerializeField] private TextMeshProUGUI _textRewardPrefab;
 
-    private void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void OnMuffinClicked()
     {
-        int addedMuffins = _gameManager.AddMuffins();        
-            
-        //Debug.Log("Muffin = " + _counter + ", Random # = " + _random);
+        int addedMuffins = _gameManager.AddMuffins();
 
-        // Random Dessert
+        // Random Dessert on every click
         int _dessertsLength = _desserts.Length;
         int _randomIndex = Random.Range(0, _dessertsLength);
         Texture2D _randomTexture = _desserts[_randomIndex];
@@ -42,12 +29,7 @@ public class MyFirstScript : MonoBehaviour
         TextMeshProUGUI textRewardClone = Instantiate(_textRewardPrefab, transform);
             // Random Position
         textRewardClone.transform.localPosition = MyToolbox.GetRandomVector2(_textMinXPos, _textMaxXPos, _textMinYPos, _textMaxYPos);
-            // Get the TMP Component
-        //TextMeshProUGUI textRewardText = textRewardClone.GetComponent<TextMeshProUGUI>();
             // Set the text
         textRewardClone.text = "+" + addedMuffins;
-
-        // Testing Color.Lerp
-        //Debug.Log(Color.Lerp(Color.white, Color.clear, 2.5f));
     }
 }

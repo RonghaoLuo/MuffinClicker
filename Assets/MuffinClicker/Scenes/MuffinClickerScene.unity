@@ -528,14 +528,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5174d378768f45f4d997207252867e3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spinLights:
+  _spinLightArray:
   - {fileID: 1594047314}
   - {fileID: 28660337}
-  _spinSpeeds: []
+  _spinSpeedArray: []
   _minSpinSpeed: 180
   _maxSpinSpeed: 360
-  _waveAmplitude: 0.16
-  _waveSpeed: 3.7
+  _waveAmplitudeArray: []
+  _minAmp: 0.2
+  _maxAmp: 0.2
+  _waveSpeedArray: []
+  _minWaveSpeed: 3.5
+  _maxWaveSpeed: 3.5
   _waveOffset: 0.84
 --- !u!1 &519420028
 GameObject:
