@@ -6,14 +6,14 @@ public class FallingDessert : MonoBehaviour
     [SerializeField] private float _moveSpeed = 200f;
 
     [SerializeField] private Image _image;
-    [SerializeField] private Sprite[] _desserts;
+    [SerializeField] private SpriteManager _spriteManager;
 
     private void Start()
     {
-        int _dessertsLength = _desserts.Length;
-        int _randomIndex = Random.Range(0, _dessertsLength);
-        Sprite _randomTexture = _desserts[_randomIndex];
-        _image.sprite = _randomTexture;
+        _spriteManager = FindAnyObjectByType<SpriteManager>();
+
+        int randomIndex = Random.Range(0, _spriteManager.DessertsCount());
+        _image.sprite = _spriteManager.GetDessertSprite(randomIndex);
     }
 
     void Update()
