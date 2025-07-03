@@ -2,14 +2,17 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class MyFirstScript : MonoBehaviour
+public class MuffinClicker : MonoBehaviour
 {
     [SerializeField] private GameManager _gameManager;
     [SerializeField] private Texture2D[] _desserts;
     [SerializeField] private RawImage _image;
 
     // For pop-up numbers after clicking muffin
-    [SerializeField] private float _textMinXPos, _textMaxXPos, _textMinYPos, _textMaxYPos;
+    [SerializeField] private float  _textMinXPos = -200, 
+                                    _textMaxXPos = 200, 
+                                    _textMinYPos = -200, 
+                                    _textMaxYPos = 200;
     
     // Prefabs
     [SerializeField] private TextMeshProUGUI _textRewardPrefab;
@@ -25,11 +28,16 @@ public class MyFirstScript : MonoBehaviour
         _image.texture = _randomTexture;
 
         // Reward pop-up text
-            // Clone
+        CreateTextRewardPrefab(addedMuffins);
+    }
+
+    private void CreateTextRewardPrefab(int addedMuffins)
+    {
+        // Clone
         TextMeshProUGUI textRewardClone = Instantiate(_textRewardPrefab, transform);
-            // Random Position
+        // Random Position
         textRewardClone.transform.localPosition = MyToolbox.GetRandomVector2(_textMinXPos, _textMaxXPos, _textMinYPos, _textMaxYPos);
-            // Set the text
-        textRewardClone.text = "+" + addedMuffins;
+        // Set the text
+        textRewardClone.text = $"+{addedMuffins}";
     }
 }
